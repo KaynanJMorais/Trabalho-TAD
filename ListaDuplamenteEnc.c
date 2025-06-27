@@ -128,6 +128,11 @@ float medianotaDoDia(NoLista **l, int v) /*Mostra a media das notas dos x dias*/
         NoLista *p = ultimo(l);      // Cria um ponteiro auxiliar para apontar para o ultimo elemento da lista
         for (int i = 0; i != v; i++) // Percorre a lista até o dia escolhido
         {
+            if (p == NULL)
+            { // Caso o dia escolhido seja maior que a quantidade de dias
+                printf("Dia nao encontrado\n");
+                return 0;
+            }
             n += p->registros.notaDoDia; // Soma as notas
             p = p->ant;                  // Move o ponteiro para o elemento anterior
         }

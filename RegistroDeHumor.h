@@ -18,7 +18,7 @@ typedef struct registro
     char data[30];
     Humor humor;
     char motivo[100];
-    int notaDoDia;
+    float notaDoDia;
 } RegistroDeHumor;
 
 typedef struct nolista

@@ -37,7 +37,7 @@ RegistroDeHumor *criarRegistro()
     printf("Fale o motivo do seu humor:\n"); // Imprimir mensagem para o usuário
     scanf(" %[^\n]", v->motivo); // Ler o motivo do usuário
     printf("Qual nota você daria para o seu dia de hoje?\n"); // Imprimir mensagem para o usuário
-    scanf("%d", &v->notaDoDia); // Ler a nota do usuário
+    scanf("%f", &v->notaDoDia); // Ler a nota do usuário
     return v; // Retornar o registro criado
 }
 
@@ -48,7 +48,7 @@ void ImprimirRegistro(RegistroDeHumor v)
     printf("ID: %d\n", v.id);
     printf("DATA: %s\n", v.data);
     printf("HUMOR: %s\n", nomesHumor[v.humor]);
-    printf("NOTA DO DIA: %d\n", v.notaDoDia);
+    printf("NOTA DO DIA: %f\n", v.notaDoDia);
     printf("MOTIVO:\n%s\n", v.motivo);
     printf("\n");
 }
