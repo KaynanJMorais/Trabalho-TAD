@@ -6,8 +6,8 @@
 
 int main()
 {
-    system("chcp 65001 > nul");
-    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("chcp 65001 > nul"); // para o console aceitar caracteres especiais
+    setlocale(LC_ALL, "pt_BR.UTF-8"); // para definir como portugues
     NoLista *lista = NULL;
     RegistroDeHumor *salvar;
     int p, v;
