@@ -129,7 +129,7 @@ float medianotaDoDia(NoLista **l, int v) /*Mostra a media das notas dos x dias*/
         for (int i = 0; i != v; i++) // Percorre a lista até o dia escolhido
         {
             if (p == NULL)
-            { // Caso o dia escolhido seja maior que a quantidade de dias
+            { // Caso o dia escolhido seja maior que a quantidade de dias :)
                 printf("Dia nao encontrado\n");
                 return 0;
             }
