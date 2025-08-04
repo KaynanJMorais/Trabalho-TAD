@@ -6,11 +6,27 @@
 
 int main()
 {
-    system("chcp 65001 > nul"); // para o console aceitar caracteres especiais
+    system("chcp 65001 > nul");       // para o console aceitar caracteres especiais
     setlocale(LC_ALL, "pt_BR.UTF-8"); // para definir como portugues
     NoLista *lista = NULL;
-    RegistroDeHumor *salvar;
+    RegistroDeHumor *salvar = malloc(sizeof(RegistroDeHumor));
+    ;
     int p, v;
+    /*Leitura dos dados do arquivo*/
+    FILE *arq = fopen("Registro.txt", "r");
+    if (arq != NULL)
+    {
+        while (fscanf(arq, "%d %s %d %d %[^\n]", &salvar->id, salvar->data, &salvar->humor, &salvar->notaDoDia, salvar->motivo) == 5)
+        {
+            inseNoFim(&lista, *salvar);
+        }
+        fclose(arq);
+    }
+    else
+    {
+        printf("Arquivo não encontrado\n");
+    }
+
     do
     {
         printf("-------------------MENU---------------------\n");
@@ -64,6 +80,26 @@ int main()
             scanf("%d", &v);
             motivohumor(&lista, v);
             break;
+        case 8:
+        {
+            FILE *arq = fopen("Registro.txt", "w");
+            if (arq != NULL)
+            {
+                NoLista *p = lista;
+                for (; p != NULL; p = p->prox)
+                {
+                    fprintf(arq, "%d %s %d %d %s\n", p->registros.id, p->registros.data, p->registros.humor, p->registros.notaDoDia, p->registros.motivo);
+                }
+                fclose(arq);
+                printf("\aRegistro salvo!\n");
+            }
+            else
+            {
+                printf("Erro ao abrir arquivo!\n");
+            }
+        }
+        break;
+
         default:
             printf("Elemento digitado invalido.\n");
             break;

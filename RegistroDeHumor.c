@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "RegistroDeHumor.h"
-int id = 0; // Variable global para o ID do registro
+#include "ListaDuplamenteEnc.h"
 
 // Transforma os numeros de Humor para uma string
 const char *nomesHumor[] = {
@@ -23,8 +23,6 @@ RegistroDeHumor *criarRegistro()
     {
         printf("Erro ao criar registro\n"); // Imprimir mensagem de erro
     }
-    id++;                                                                                                     // Incrementar o ID do registro
-    v->id = id;                                                                                               // Atribuir o ID ao registro
     printf("Digite a data de hoje:\n");                                                                       // Imprimir mensagem para o usuário
     scanf(" %[^\n]", v->data);                                                                                // Ler a data do usuário
     printf("Escolha seu humor de hoje:\n");                                                                   // Imprimir mensagem para o usuário

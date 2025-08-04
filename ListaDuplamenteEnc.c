@@ -35,15 +35,17 @@ void inseNoFim(NoLista **l, RegistroDeHumor v) /*função insere no fim*/
     }
     else
     {
-        novo->registros = v; // Insere o valor no novo nó
-        novo->prox = NULL;   // Define o próximo nó como NULL
-        novo->ant = NULL;    // Define o nó anterior como NULL
-        if (!estavazia(l))   // Verifica se a lista não está vazia
+        novo->registros = v;    // Insere o valor no novo nó
+        novo->prox = NULL;      // Define o próximo nó como NULL
+        novo->ant = NULL;       // Define o nó anterior como NULL
+        novo->registros.id = 1; // Define o id do nó como 0
+        if (!estavazia(l))      // Verifica se a lista não está vazia
         {
             for (p = *l; p->prox != NULL; p = p->prox) // Percorre a lista até o último elemento
                 ;
             p->prox = novo; // Insere o novo nó no fim da lista
             novo->ant = p;  // Define o nó anterior do novo nó como o último elemento da lista
+            novo->registros.id = p->registros.id + 1; // Atualiza o id do novo nó
         }
         else
         {
