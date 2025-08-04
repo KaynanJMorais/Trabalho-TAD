@@ -13,14 +13,14 @@ int main()
     ;
     int p, v;
     /*Leitura dos dados do arquivo*/
-    FILE *arq = fopen("Registro.txt", "r");
+    FILE *arq = fopen("Registro.txt", "r"); // Abre o arquivo pra leitura para verificar se tem algo salvo ao inicializar o programa
     if (arq != NULL)
     {
-        while (fscanf(arq, "%d %s %d %d %[^\n]", &salvar->id, salvar->data, &salvar->humor, &salvar->notaDoDia, salvar->motivo) == 5)
+        while (fscanf(arq, "%d %s %d %d %[^\n]", &salvar->id, salvar->data, &salvar->humor, &salvar->notaDoDia, salvar->motivo) == 5) // Lê o arquivo e salva os dados em um registro
         {
-            inseNoFim(&lista, *salvar);
+            inseNoFim(&lista, *salvar); // Joga o registro lido direto no final da lista
         }
-        fclose(arq);
+        fclose(arq); // Fecha o arquivo.
     }
     else
     {
@@ -82,15 +82,16 @@ int main()
             break;
         case 8:
         {
-            FILE *arq = fopen("Registro.txt", "w");
+            FILE *arq = fopen("Registro.txt", "w"); //Abre o arquivo no modo escrita e sobrescreve 
             if (arq != NULL)
             {
-                NoLista *p = lista;
-                for (; p != NULL; p = p->prox)
+                NoLista *p = lista; 
+                for (; p != NULL; p = p->prox) // Percorre a lista
                 {
-                    fprintf(arq, "%d %s %d %d %s\n", p->registros.id, p->registros.data, p->registros.humor, p->registros.notaDoDia, p->registros.motivo);
+                    // Escrever os arquivos no registro apos encerrar o programa
+                    fprintf(arq, "%d %s %d %d %s\n", p->registros.id, p->registros.data, p->registros.humor, p->registros.notaDoDia, p->registros.motivo); 
                 }
-                fclose(arq);
+                fclose(arq); // Fecha o arquivo
                 printf("\aRegistro salvo!\n");
             }
             else
