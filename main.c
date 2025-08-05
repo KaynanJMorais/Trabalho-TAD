@@ -9,7 +9,7 @@ int main()
     system("chcp 65001 > nul");       // para o console aceitar caracteres especiais
     setlocale(LC_ALL, "pt_BR.UTF-8"); // para definir como portugues
     NoLista *lista = NULL;
-    RegistroDeHumor *salvar = malloc(sizeof(RegistroDeHumor));
+    RegistroDeHumor *salvar;
     ;
     int p, v;
     /*Leitura dos dados do arquivo*/
@@ -82,14 +82,14 @@ int main()
             break;
         case 8:
         {
-            FILE *arq = fopen("Registro.txt", "w"); //Abre o arquivo no modo escrita e sobrescreve 
+            FILE *arq = fopen("Registro.txt", "w"); // Abre o arquivo no modo escrita e sobrescreve
             if (arq != NULL)
             {
-                NoLista *p = lista; 
+                NoLista *p = lista;
                 for (; p != NULL; p = p->prox) // Percorre a lista
                 {
                     // Escrever os arquivos no registro apos encerrar o programa
-                    fprintf(arq, "%d %s %d %d %s\n", p->registros.id, p->registros.data, p->registros.humor, p->registros.notaDoDia, p->registros.motivo); 
+                    fprintf(arq, "%d %s %d %d %s\n", p->registros.id, p->registros.data, p->registros.humor, p->registros.notaDoDia, p->registros.motivo);
                 }
                 fclose(arq); // Fecha o arquivo
                 printf("\aRegistro salvo!\n");
