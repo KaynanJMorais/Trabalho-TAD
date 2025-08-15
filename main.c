@@ -9,7 +9,7 @@ int main()
     system("chcp 65001 > nul");       // para o console aceitar caracteres especiais
     setlocale(LC_ALL, "pt_BR.UTF-8"); // para definir como portugues
     NoLista *lista = NULL;
-    RegistroDeHumor *salvar;
+    RegistroDeHumor *salvar = (RegistroDeHumor *)malloc(sizeof(RegistroDeHumor));
     ;
     int p, v;
     /*Leitura dos dados do arquivo*/
@@ -107,5 +107,6 @@ int main()
         }
     } while (p != 8);
 
+    free(salvar);
     return 0;
 }

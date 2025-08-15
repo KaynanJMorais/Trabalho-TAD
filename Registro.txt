@@ -1,0 +1,3 @@
+1 14/08/2025 0 10 Fechei o primeiro trabalho!
+2 14/08/2025 3 10 Testando para ver se o ID esta funcionando
+3 14/08/2025 0 10 Testando make clean e make e testando codigo
